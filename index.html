@@ -13,6 +13,7 @@
 
   <!-- Font Awesome (for icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" />
 
   <style>
     /* ===== CSS Variables & Reset ===== */
@@ -276,7 +277,7 @@
       font-size: 0.9rem;
     }
     thead th {
-      background: linear-gradient(135deg, #1E293B, #1e3a5f);
+      background: #4B7BEC;
       color: #fff;
       padding: 12px 16px;
       text-align: center;
@@ -303,6 +304,7 @@
       line-height: 1.8;
       overflow-x: auto;
       position: relative;
+      white-space: pre-wrap;
     }
 
     .copy-btn {
@@ -352,19 +354,19 @@
     </h1>
 
     <div class="authors">
-      <a href="#">Zhide Zhong*</a>
-      <a href="#">Junfeng Li*</a>
-      <a href="#">Junjie He*</a>
-      <a href="#">Haodong Yan</a>
-      <a href="#">Xin Gong</a>
-      <a href="#">Guanyi Zhao</a>
-      <a href="#">Yingjie Cai</a>
-      <a href="#">Jiantao Gao</a>
-      <a href="#">Xu Yan</a>
-      <a href="#">Bingbing Liu</a>
-      <a href="#">Yingcong Chen</a>
-      <a href="#">Liuqing Yang</a>
-      <a href="#">Haoang Li†</a>
+      <a href="#">Zhide Zhong<sup>1</sup>*</a>
+      <a href="#">Junfeng Li<sup>1</sup>*</a>
+      <a href="#">Junjie He<sup>1</sup>*</a>
+      <a href="#">Haodong Yan<sup>1</sup></a>
+      <a href="#">Xin Gong<sup>1</sup></a>
+      <a href="#">Guanyi Zhao<sup>2</sup></a>
+      <a href="#">Yingjie Cai<sup>2</sup></a>
+      <a href="#">Jiantao Gao<sup>2</sup></a>
+      <a href="#">Xu Yan<sup>2</sup></a>
+      <a href="#">Bingbing Liu<sup>2</sup></a>
+      <a href="#">Yingcong Chen<sup>1</sup></a>
+      <a href="#">Liuqing Yang<sup>1</sup></a>
+      <a href="#">Haoang Li<sup>1</sup>†</a>
     </div>
 
     <p class="author-note">* Equal contribution &nbsp;&nbsp; † Corresponding author</p>
@@ -375,10 +377,13 @@
     </div>
 
     <div class="btn-group">
-      <a class="btn btn-primary" href="#" id="paper-link">
-        <i class="fas fa-file-pdf"></i> Paper
+      <a class="btn btn-primary" href="https://arxiv.org/abs/2603.22280" target="_blank" id="paper-link">
+        <i class="ai ai-arxiv"></i> ArXiv
       </a>
-      <a class="btn btn-outline" href="https://github.com/Livfour/DualCoT-VLA" id="code-link">
+      <a class="btn btn-primary" href="https://arxiv.org/pdf/2603.22280" target="_blank" id="paper-link">
+        <i class="fa-regular fa-file-lines"></i> PDF
+      </a>
+      <a class="btn btn-outline" href="https://github.com/Livfour/DualCoT-VLA" target="_blank" id="code-link">
         <i class="fab fa-github"></i> Code
       </a>
       <a class="btn btn-outline" href="#bibtex">
@@ -394,7 +399,7 @@
     <h2>Abstract</h2>
     <div class="section-divider"></div>
     <p class="abstract-text">
-      Vision-Language-Action (VLA) models map visual observations and language instructions directly to robotic actions. While effective for simple tasks, standard VLA models often struggle with complex, multi-step tasks requiring logical planning, as well as precise manipulations demanding fine-grained spatial perception. Recent efforts have incorporated Chain-of-Thought (CoT) reasoning to endow VLA models with a "thinking before acting" capability. However, current CoT-based VLA models face two critical limitations: (1) an inability to simultaneously capture low-level visual details and high-level logical planning due to their reliance on isolated, single-modal CoT; (2) high inference latency with compounding errors caused by step-by-step autoregressive decoding. To address these limitations, we propose <strong>DualCoT-VLA</strong>, a visual-linguistic CoT method for VLA models with a parallel reasoning mechanism. Our method integrates a Visual CoT for low-level spatial understanding and a Linguistic CoT for high-level task planning. Furthermore, to overcome the latency bottleneck, we introduce a parallel CoT mechanism that incorporates two sets of learnable query tokens, shifting autoregressive reasoning to single-step forward reasoning. Extensive experiments demonstrate that our DualCoT-VLA achieves state-of-the-art performance on the LIBERO and RoboCasa GR1 benchmarks, as well as in real-world platforms.
+      Vision-Language-Action (VLA) models map visual observations and language instructions directly to robotic actions. While effective for simple tasks, standard VLA models often struggle with complex, multi-step tasks requiring logical planning, as well as precise manipulations demanding fine-grained spatial perception. Recent efforts have incorporated Chain-of-Thought (CoT) reasoning to endow VLA models with a "thinking before acting" capability. However, current CoT-based VLA models face two critical limitations: 1) an inability to simultaneously capture low-level visual details and high-level logical planning due to their reliance on isolated, single-modal CoT; 2) high inference latency with compounding errors caused by step-by-step autoregressive decoding. To address these limitations, we propose <strong>DualCoT-VLA</strong>, a visual-linguistic CoT method for VLA models with a parallel reasoning mechanism. To achieve comprehensive multi-modal reasoning, our method integrates a visual CoT for low-level spatial understanding and a linguistic CoT for high-level task planning. Furthermore, to overcome the latency bottleneck, we introduce a parallel CoT mechanism that incorporates two sets of learnable query tokens, shifting autoregressive reasoning to single-step forward reasoning. Extensive experiments demonstrate that our DualCoT-VLA achieves state-of-the-art performance on the LIBERO and RoboCasa GR1 benchmarks, as well as in real-world platforms.
     </p>
   </div>
 </section>
@@ -581,13 +586,16 @@
     <h2>BibTeX</h2>
     <div class="section-divider"></div>
     <div style="position:relative;">
-      <div class="bibtex-box" id="bibtex-content">@article{zhong2025dualcotvla,
-  title   = {DualCoT-VLA: Visual-Linguistic Chain of Thought via Parallel Reasoning for Vision-Language-Action Models},
-  author  = {Zhong, Zhide and Li, Junfeng and He, Junjie and Yan, Haodong and
-             Gong, Xin and Zhao, Guanyi and Cai, Yingjie and Gao, Jiantao and
-             Yan, Xu and Liu, Bingbing and Chen, Yingcong and Yang, Liuqing and Li, Haoang},
-  journal = {arXiv preprint},
-  year    = {2025}
+      <div class="bibtex-box" id="bibtex-content">@misc{zhong2026dualcotvlavisuallinguisticchainthought,
+  title         = {DualCoT-VLA: Visual-Linguistic Chain of Thought via Parallel Reasoning for Vision-Language-Action Models},
+  author        = {Zhide Zhong and Junfeng Li and Junjie He and Haodong Yan and
+                   Xin Gong and Guanyi Zhao and Yingjie Cai and Jiantao Gao and
+                   Xu Yan and Bingbing Liu and Yingcong Chen and Liuqing Yang and Haoang Li},
+  year          = {2026},
+  eprint        = {2603.22280},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV},
+  url           = {https://arxiv.org/abs/2603.22280}
 }</div>
       <button class="copy-btn" onclick="copyBibtex(this)"><i class="fas fa-copy"></i> Copy</button>
     </div>
@@ -597,11 +605,7 @@
 <!-- ==================== FOOTER ==================== -->
 <footer>
   <p>
-    This page was built with ❤️ using a template inspired by
-    <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.
-  </p>
-  <p style="margin-top:6px;">
-    © 2025 DualCoT-VLA Authors · HKUST (GZ) &amp; Huawei
+    © 2026 DualCoT-VLA Authors · HKUST (GZ) &amp; Huawei
   </p>
 </footer>
 
